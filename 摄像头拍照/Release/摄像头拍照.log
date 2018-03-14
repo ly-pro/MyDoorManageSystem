@@ -1,0 +1,17 @@
+﻿  stdafx.cpp
+  AssemblyInfo.cpp
+  CDeviceInfo.cpp
+  ConfigManager.cpp
+  CPersonInfo.cpp
+  faceapi.cpp
+  FormsManager.cpp
+  LoginForm.cpp
+  MainForm.cpp
+  MyClient.cpp
+  MyForm.cpp
+  mytool.cpp
+  pictool.cpp
+  摄像头拍照.cpp
+  正在生成代码...
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  摄像头拍照.vcxproj -> E:\软件\学习中\CLR\摄像头拍照\Release\小区人员管理系统.exe

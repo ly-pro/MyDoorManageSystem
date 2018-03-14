@@ -1,0 +1,241 @@
+  摄像头拍照.LoginForm.resources - Embedded, ContainedInManifestFile, 
+  摄像头拍照.MainForm.resources - Embedded, ContainedInManifestFile, 
+  摄像头拍照.MyForm.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly 小区人员管理系统, Version=1.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9: 
+	hash=None, flags=None
+Assembly AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b: 
+	hash=None, flags=None
+Assembly AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7: 
+	hash=None, flags=None
+Assembly AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401: 
+	hash=None, flags=None
+Assembly MySql.Data, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
+	hash=None, flags=None
+Assembly Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data.SQLite, Version=1.0.107.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Class 摄像头拍照.ShootFinishEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(String): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(String, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class 摄像头拍照.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    AForge.Video.DirectShow.FilterInfoCollection videoDevices : Public
+    AForge.Video.DirectShow.VideoCaptureDevice videoSource : Public
+    Int32 selectedDeviceIndex : Public
+    Int32 dAngle : Public, Static
+    Int32 shangxiafanzhuan : Public, Static
+    Int32 zuoyoufanzhuan : Public, Static
+  Properties:
+    System.String adminname 'get set' : 
+  Events:
+    摄像头拍照.ShootFinishEventHandler ShootFinish: SpecialName
+  Methods:
+    add_ShootFinish(ShootFinishEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_ShootFinish(ShootFinishEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_adminname(): PrivateScope, Public, HideBySig, SpecialName
+    set_adminname(String): PrivateScope, Public, HideBySig, SpecialName
+    takephoto(): PrivateScope, Public, HideBySig
+    startcapture(): PrivateScope, Public, HideBySig
+    stopcapture(): PrivateScope, Public, HideBySig
+    getcamerainfo(): PrivateScope, Public, HideBySig
+    videoSourcePlayer_NewFrame(Object, Bitmap&): PrivateScope, Public, HideBySig
+Class CPersonInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, System.String, System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 Type 'get set' : 
+    System.String Contact 'get set' : 
+    Int32 Id   'get set' : 
+    System.String Name 'get set' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Contact(): PrivateScope, Public, HideBySig, SpecialName
+    set_Contact(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    set_Type(Int32): PrivateScope, Public, HideBySig, SpecialName
+    LoadFromJson(String): PrivateScope, Public, Static, HideBySig
+    ToJson(): PrivateScope, Public, HideBySig
+    ToJson(CPersonInfo): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class 摄像头拍照.MainCloseHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class 摄像头拍照.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(CPersonInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean isneedask : Public
+  Properties:
+    Int32 AccountType 'get set' : 
+    Int32 AccountId 'get set' : 
+    System.String AccountName 'get set' : 
+  Events:
+    摄像头拍照.MainCloseHandler MainClose: SpecialName
+  Methods:
+    add_MainClose(MainCloseHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_MainClose(MainCloseHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_AccountName(): PrivateScope, Public, HideBySig, SpecialName
+    set_AccountName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AccountId(): PrivateScope, Public, HideBySig, SpecialName
+    set_AccountId(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_AccountType(): PrivateScope, Public, HideBySig, SpecialName
+    set_AccountType(Int32): PrivateScope, Public, HideBySig, SpecialName
+    On_MainForm_Close(Object, FormClosingEventArgs): PrivateScope, Public, HideBySig
+Class 摄像头拍照.LoginFinishEventhandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(CPersonInfo): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(CPersonInfo, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class 摄像头拍照.LoginForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean issu : Public
+  Properties:
+    Int32 AccountId 'get set' : 
+    Int32 AccountType 'get set' : 
+  Events:
+    摄像头拍照.LoginFinishEventhandler LoginFinish: SpecialName
+  Methods:
+    add_LoginFinish(LoginFinishEventhandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_LoginFinish(LoginFinishEventhandler): PrivateScope, Public, HideBySig, SpecialName
+    get_AccountType(): PrivateScope, Public, HideBySig, SpecialName
+    set_AccountType(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_AccountId(): PrivateScope, Public, HideBySig, SpecialName
+    set_AccountId(Int32): PrivateScope, Public, HideBySig, SpecialName
+    getidname(Int32): PrivateScope, Public, Static, HideBySig
+Class CConfigManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    System.String ConfigDB : Public, Static
+    System.Data.SQLite.SQLiteConnection m_dbConnection : Public, Static
+  Methods:
+    init(Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    cleanup(): PrivateScope, Public, Static, HideBySig
+    LoadValue(String): PrivateScope, Public, Static, HideBySig
+    LoadInt(String): PrivateScope, Public, Static, HideBySig
+    SaveValue(String, Int32): PrivateScope, Public, Static, HideBySig
+    SaveValue(String, String): PrivateScope, Public, Static, HideBySig
+    SaveInt(String, Int32): PrivateScope, Public, Static, HideBySig
+    DeleteValue(String): PrivateScope, Public, Static, HideBySig
+    DeleteValueLater(String): PrivateScope, Public, Static, HideBySig
+    SaveValueLater(String, Int32): PrivateScope, Public, Static, HideBySig
+    SaveValueLater(String, String): PrivateScope, Public, Static, HideBySig
+    SaveIntLater(String, Int32): PrivateScope, Public, Static, HideBySig
+    Submit(): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class CFormsManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    摄像头拍照.MyForm sf : Public
+    摄像头拍照.LoginForm lf : Public
+    摄像头拍照.MainForm mf : Public
+    System.Windows.Forms.OpenFileDialog dialog : Public
+  Methods:
+    ShowLogin(): PrivateScope, Public, HideBySig
+    ShowMain(Object): PrivateScope, Public, HideBySig
+    ShowMain(CPersonInfo): PrivateScope, Public, HideBySig
+    OnLoginFinish(CPersonInfo): PrivateScope, Public, HideBySig
+    OnMainClose(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class CDeviceInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 HouseId 'get set' : 
+    Int32 Id   'get set' : 
+  Methods:
+    get_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_HouseId(): PrivateScope, Public, HideBySig, SpecialName
+    set_HouseId(Int32): PrivateScope, Public, HideBySig, SpecialName
+    LoadFromJson(String): PrivateScope, Public, Static, HideBySig
+    ToJson(): PrivateScope, Public, HideBySig
+    ToJson(CDeviceInfo): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class ReplyHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(String): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(String, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class MyRequest: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, System.Collections.Generic.Dictionary`2[System.String,System.String]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.Collections.Generic.Dictionary`2[System.String,System.String]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    System.String _url : Public
+    System.String _data : Public
+    System.Collections.Generic.Dictionary`2[System.String,System.String] _dict : Public
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class MyClient: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    System.String Host : Public, Static
+    Int32 port : Public, Static
+    System.String RegisterPath : Public, Static
+  Events:
+    ReplyHandler Reply: SpecialName
+  Methods:
+    add_Reply(ReplyHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Reply(ReplyHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    RegisterPerson(String): PrivateScope, Public, Static, HideBySig
+    RegisterPerson(CPersonInfo): PrivateScope, Public, Static, HideBySig
+    HttpPost(String, Dictionary`2): PrivateScope, Public, Static, HideBySig
+    HttpPost(String, String): PrivateScope, Public, Static, HideBySig
+    HttpPostDict(String, Dictionary`2): PrivateScope, Public, Static, HideBySig
+    HttpGet(String): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

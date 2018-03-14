@@ -1,0 +1,24 @@
+﻿F:\VS2017\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(2052,5): warning MSB3270: 所生成项目的处理器架构“AMD64”与引用“System.Data.SQLite”的处理器架构“x86”不匹配。这种不匹配可能会导致运行时失败。请考虑通过配置管理器更改您的项目的目标处理器架构，以使您的项目与引用间的处理器架构保持一致，或者为引用关联一个与您的项目的目标处理器架构相符的处理器架构。
+  stdafx.cpp
+  AssemblyInfo.cpp
+  ConfigManager.cpp
+  CPersonInfo.cpp
+  faceapi.cpp
+  FormsManager.cpp
+  LoginForm.cpp
+  MainForm.cpp
+  MyForm.cpp
+  mytool.cpp
+  pictool.cpp
+  摄像头拍照.cpp
+  正在生成代码...
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+pictool.obj : error LNK2028: 无法解析的标记(0A000010) "extern "C" int __cdecl DeleteObject(void *)" (?DeleteObject@@$$J0YAHPEAX@Z)，该标记在函数 "unsigned char * * __cdecl Bmp32ToBmp24(struct HBITMAP__ *)" (?Bmp32ToBmp24@@$$FYAPEAPEAEPEAUHBITMAP__@@@Z) 中被引用
+pictool.obj : error LNK2028: 无法解析的标记(0A000014) "extern "C" int __cdecl GetDIBits(struct HDC__ *,struct HBITMAP__ *,unsigned int,unsigned int,void *,struct tagBITMAPINFO *,unsigned int)" (?GetDIBits@@$$J0YAHPEAUHDC__@@PEAUHBITMAP__@@IIPEAXPEAUtagBITMAPINFO@@I@Z)，该标记在函数 "unsigned char * * __cdecl Bmp32ToBmp24(struct HBITMAP__ *)" (?Bmp32ToBmp24@@$$FYAPEAPEAEPEAUHBITMAP__@@@Z) 中被引用
+pictool.obj : error LNK2028: 无法解析的标记(0A000016) "extern "C" int __cdecl GetObjectW(void *,int,void *)" (?GetObjectW@@$$J0YAHPEAXH0@Z)，该标记在函数 "extern "C" int __cdecl GetObject(void *,int,void *)" (?GetObject@@$$J0YAHPEAXH0@Z) 中被引用
+pictool.obj : error LNK2028: 无法解析的标记(0A000020) "extern "C" struct HBITMAP__ * __cdecl CreateBitmap(int,int,unsigned int,unsigned int,void const *)" (?CreateBitmap@@$$J0YAPEAUHBITMAP__@@HHIIPEBX@Z)，该标记在函数 "bool __cdecl readBmp24(char const *,unsigned char * *,int *,int *)" (?readBmp24@@$$FYA_NPEBDPEAPEAEPEAH2@Z) 中被引用
+pictool.obj : error LNK2019: 无法解析的外部符号 "extern "C" int __cdecl GetObjectW(void *,int,void *)" (?GetObjectW@@$$J0YAHPEAXH0@Z)，该符号在函数 "extern "C" int __cdecl GetObject(void *,int,void *)" (?GetObject@@$$J0YAHPEAXH0@Z) 中被引用
+pictool.obj : error LNK2019: 无法解析的外部符号 "extern "C" int __cdecl GetDIBits(struct HDC__ *,struct HBITMAP__ *,unsigned int,unsigned int,void *,struct tagBITMAPINFO *,unsigned int)" (?GetDIBits@@$$J0YAHPEAUHDC__@@PEAUHBITMAP__@@IIPEAXPEAUtagBITMAPINFO@@I@Z)，该符号在函数 "unsigned char * * __cdecl Bmp32ToBmp24(struct HBITMAP__ *)" (?Bmp32ToBmp24@@$$FYAPEAPEAEPEAUHBITMAP__@@@Z) 中被引用
+pictool.obj : error LNK2019: 无法解析的外部符号 "extern "C" int __cdecl DeleteObject(void *)" (?DeleteObject@@$$J0YAHPEAX@Z)，该符号在函数 "unsigned char * * __cdecl Bmp32ToBmp24(struct HBITMAP__ *)" (?Bmp32ToBmp24@@$$FYAPEAPEAEPEAUHBITMAP__@@@Z) 中被引用
+pictool.obj : error LNK2019: 无法解析的外部符号 "extern "C" struct HBITMAP__ * __cdecl CreateBitmap(int,int,unsigned int,unsigned int,void const *)" (?CreateBitmap@@$$J0YAPEAUHBITMAP__@@HHIIPEBX@Z)，该符号在函数 "bool __cdecl readBmp24(char const *,unsigned char * *,int *,int *)" (?readBmp24@@$$FYA_NPEBDPEAPEAEPEAH2@Z) 中被引用
+E:\软件\学习中\CLR\摄像头拍照\x64\Debug\小区人员管理系统.exe : fatal error LNK1120: 8 个无法解析的外部命令

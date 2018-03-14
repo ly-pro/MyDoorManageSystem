@@ -1,0 +1,362 @@
+  AForge.Controls.SliderControl.resources - Embedded, ContainedInManifestFile, 
+  AForge.Controls.HuePicker.resources - Embedded, ContainedInManifestFile, 
+  AForge.Controls.Resources.arrow.bmp - Embedded, ContainedInManifestFile, 
+  AForge.Controls.ManipulatorControl.resources - Embedded, ContainedInManifestFile, 
+  AForge.Controls.ColorSlider.resources - Embedded, ContainedInManifestFile, 
+  AForge.Controls.HistogramEventArgs.resources - Embedded, ContainedInManifestFile, 
+  AForge.Controls.VideoSourcePlayer.resources - Embedded, ContainedInManifestFile, 
+  AForge.Controls.Chart.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v2.0.50727
+Assembly AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9: 
+	hash=SHA1, flags=PublicKey
+Assembly System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401: 
+	hash=None, flags=None
+Assembly System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb: 
+	hash=None, flags=None
+Assembly AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b: 
+	hash=None, flags=None
+Class AForge.Controls.PictureBox: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.PictureBox
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Image Image 'get set' : 
+  Methods:
+    get_Image(): PrivateScope, Public, HideBySig, SpecialName
+    set_Image(Image): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.ColorSlider: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color StartColor 'get set' : 
+    System.Drawing.Color EndColor 'get set' : 
+    System.Drawing.Color FillColor 'get set' : 
+    ColorSliderType Type 'get set' : 
+    Int32 Min  'get set' : 
+    Int32 Max  'get set' : 
+    Boolean DoubleArrow 'get set' : 
+  Events:
+    System.EventHandler ValuesChanged: 
+  Methods:
+    add_ValuesChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_ValuesChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_StartColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_EndColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    set_Type(ColorSliderType): PrivateScope, Public, HideBySig, SpecialName
+    get_Min(): PrivateScope, Public, HideBySig, SpecialName
+    set_Min(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Max(): PrivateScope, Public, HideBySig, SpecialName
+    set_Max(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DoubleArrow(): PrivateScope, Public, HideBySig, SpecialName
+    set_DoubleArrow(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Struct AForge.Controls.ColorSlider+ColorSliderType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    ColorSliderType Gradient = 0 : Public, Static, Literal, HasDefault
+    ColorSliderType InnerGradient = 1 : Public, Static, Literal, HasDefault
+    ColorSliderType OuterGradient = 2 : Public, Static, Literal, HasDefault
+    ColorSliderType Threshold = 3 : Public, Static, Literal, HasDefault
+Class AForge.Controls.VideoSourcePlayer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean AutoSizeControl 'get set' : 
+    System.Drawing.Color BorderColor 'get set' : 
+    AForge.Video.IVideoSource VideoSource 'get set' : 
+    Boolean IsRunning 'get ' : 
+  Events:
+    NewFrameHandler NewFrame: 
+    AForge.Video.PlayingFinishedEventHandler PlayingFinished: 
+  Methods:
+    get_AutoSizeControl(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoSizeControl(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_BorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_VideoSource(): PrivateScope, Public, HideBySig, SpecialName
+    set_VideoSource(IVideoSource): PrivateScope, Public, HideBySig, SpecialName
+    get_IsRunning(): PrivateScope, Public, HideBySig, SpecialName
+    add_NewFrame(NewFrameHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_NewFrame(NewFrameHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_PlayingFinished(PlayingFinishedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_PlayingFinished(PlayingFinishedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    Start(): PrivateScope, Public, HideBySig
+    Stop(): PrivateScope, Public, HideBySig
+    SignalToStop(): PrivateScope, Public, HideBySig
+    WaitForStop(): PrivateScope, Public, HideBySig
+    GetCurrentVideoFrame(): PrivateScope, Public, HideBySig
+Class AForge.Controls.VideoSourcePlayer+NewFrameHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, Bitmap&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, Bitmap&, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(Bitmap&, IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Controls.SliderControl: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ResetPositionOnMouseRelease 'get set' : 
+    System.Drawing.Color BorderColor 'get set' : 
+    System.Drawing.Color PositiveAreaBrush 'get set' : 
+    System.Drawing.Color NegativeAreaBrush 'get set' : 
+    System.Drawing.Color ManipulatorColor 'get set' : 
+    Boolean IsHorizontal 'get set' : 
+    Single ManipulatorPosition 'get set' : 
+  Events:
+    PositionChangedHandler PositionChanged: 
+  Methods:
+    get_ResetPositionOnMouseRelease(): PrivateScope, Public, HideBySig, SpecialName
+    set_ResetPositionOnMouseRelease(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_BorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_PositiveAreaBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_PositiveAreaBrush(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_NegativeAreaBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_NegativeAreaBrush(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ManipulatorColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ManipulatorColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_IsHorizontal(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsHorizontal(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ManipulatorPosition(): PrivateScope, Public, HideBySig, SpecialName
+    set_ManipulatorPosition(Single): PrivateScope, Public, HideBySig, SpecialName
+    add_PositionChanged(PositionChangedHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_PositionChanged(PositionChangedHandler): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.SliderControl+PositionChangedHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, Single, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Controls.Joystick: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    DeviceInfo Info 'get ' : 
+  Methods:
+    get_Info(): PrivateScope, Public, HideBySig, SpecialName
+    GetAvailableDevices(): PrivateScope, Public, Static, HideBySig
+    Init(Int32): PrivateScope, Public, HideBySig
+    GetCurrentStatus(): PrivateScope, Public, HideBySig
+Class AForge.Controls.Joystick+DeviceInfo: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  Fields:
+    Int32 ID : Public, InitOnly
+  Properties:
+    System.String Name 'get ' : 
+    Int32 Axes 'get ' : 
+    Int32 Buttons 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Axes(): PrivateScope, Public, HideBySig, SpecialName
+    get_Buttons(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.Joystick+Status: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  Properties:
+    Single XAxis 'get ' : 
+    Single YAxis 'get ' : 
+    Single ZAxis 'get ' : 
+    Single RAxis 'get ' : 
+    Single UAxis 'get ' : 
+    Single VAxis 'get ' : 
+    Buttons Buttons 'get ' : 
+    Single PointOfView 'get ' : 
+  Methods:
+    get_XAxis(): PrivateScope, Public, HideBySig, SpecialName
+    get_YAxis(): PrivateScope, Public, HideBySig, SpecialName
+    get_ZAxis(): PrivateScope, Public, HideBySig, SpecialName
+    get_RAxis(): PrivateScope, Public, HideBySig, SpecialName
+    get_UAxis(): PrivateScope, Public, HideBySig, SpecialName
+    get_VAxis(): PrivateScope, Public, HideBySig, SpecialName
+    get_Buttons(): PrivateScope, Public, HideBySig, SpecialName
+    get_PointOfView(): PrivateScope, Public, HideBySig, SpecialName
+    IsButtonPressed(Buttons): PrivateScope, Public, HideBySig
+Struct AForge.Controls.Joystick+Buttons: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Buttons Button1 = 1 : Public, Static, Literal, HasDefault
+    Buttons Button2 = 2 : Public, Static, Literal, HasDefault
+    Buttons Button3 = 4 : Public, Static, Literal, HasDefault
+    Buttons Button4 = 8 : Public, Static, Literal, HasDefault
+    Buttons Button5 = 16 : Public, Static, Literal, HasDefault
+    Buttons Button6 = 32 : Public, Static, Literal, HasDefault
+    Buttons Button7 = 64 : Public, Static, Literal, HasDefault
+    Buttons Button8 = 128 : Public, Static, Literal, HasDefault
+    Buttons Button9 = 256 : Public, Static, Literal, HasDefault
+    Buttons Button10 = 512 : Public, Static, Literal, HasDefault
+    Buttons Button11 = 1024 : Public, Static, Literal, HasDefault
+    Buttons Button12 = 2048 : Public, Static, Literal, HasDefault
+    Buttons Button13 = 4096 : Public, Static, Literal, HasDefault
+    Buttons Button14 = 8192 : Public, Static, Literal, HasDefault
+    Buttons Button15 = 16384 : Public, Static, Literal, HasDefault
+    Buttons Button16 = 32768 : Public, Static, Literal, HasDefault
+Class AForge.Controls.HuePicker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Value 'get set' : 
+    Int32 Min  'get set' : 
+    Int32 Max  'get set' : 
+    HuePickerType Type 'get set' : 
+  Events:
+    System.EventHandler ValuesChanged: 
+  Methods:
+    add_ValuesChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_ValuesChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    set_Value(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Min(): PrivateScope, Public, HideBySig, SpecialName
+    set_Min(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Max(): PrivateScope, Public, HideBySig, SpecialName
+    set_Max(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    set_Type(HuePickerType): PrivateScope, Public, HideBySig, SpecialName
+Struct AForge.Controls.HuePicker+HuePickerType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    HuePickerType Value = 0 : Public, Static, Literal, HasDefault
+    HuePickerType Range = 1 : Public, Static, Literal, HasDefault
+Class AForge.Controls.ManipulatorControl: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsSquareLook 'get set' : 
+    Boolean DrawHorizontalAxis 'get set' : 
+    Boolean DrawVerticalAxis 'get set' : 
+    Boolean ResetPositionOnMouseRelease 'get set' : 
+    System.Drawing.Color BorderColor 'get set' : 
+    System.Drawing.Color TopLeftBackgroundColor 'get set' : 
+    System.Drawing.Color TopRightBackgroundColor 'get set' : 
+    System.Drawing.Color BottomLeftBackgroundColor 'get set' : 
+    System.Drawing.Color BottomRightBackgroundColor 'get set' : 
+    System.Drawing.Color ManipulatorColor 'get set' : 
+    System.Drawing.PointF ManipulatorPosition 'get set' : 
+  Events:
+    PositionChangedHandler PositionChanged: 
+  Methods:
+    get_IsSquareLook(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsSquareLook(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_DrawHorizontalAxis(): PrivateScope, Public, HideBySig, SpecialName
+    set_DrawHorizontalAxis(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_DrawVerticalAxis(): PrivateScope, Public, HideBySig, SpecialName
+    set_DrawVerticalAxis(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ResetPositionOnMouseRelease(): PrivateScope, Public, HideBySig, SpecialName
+    set_ResetPositionOnMouseRelease(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_BorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_TopLeftBackgroundColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_TopLeftBackgroundColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_TopRightBackgroundColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_TopRightBackgroundColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_BottomLeftBackgroundColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BottomLeftBackgroundColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_BottomRightBackgroundColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BottomRightBackgroundColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ManipulatorColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ManipulatorColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ManipulatorPosition(): PrivateScope, Public, HideBySig, SpecialName
+    set_ManipulatorPosition(PointF): PrivateScope, Public, HideBySig, SpecialName
+    add_PositionChanged(PositionChangedHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_PositionChanged(PositionChangedHandler): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.ManipulatorControl+PositionEventArgs: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Single X   'get ' : 
+    Single Y   'get ' : 
+    Single Theta 'get ' : 
+    Single R   'get ' : 
+  Methods:
+    get_X(): PrivateScope, Public, HideBySig, SpecialName
+    get_Y(): PrivateScope, Public, HideBySig, SpecialName
+    get_Theta(): PrivateScope, Public, HideBySig, SpecialName
+    get_R(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.ManipulatorControl+PositionChangedHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, PositionEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, PositionEventArgs, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Controls.HistogramEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Min  'get ' : 
+    Int32 Max  'get ' : 
+    Int32 Position 'get ' : 
+  Methods:
+    get_Min(): PrivateScope, Public, HideBySig, SpecialName
+    get_Max(): PrivateScope, Public, HideBySig, SpecialName
+    get_Position(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.HistogramEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, HistogramEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, HistogramEventArgs, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Controls.Histogram: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color Color 'get set' : 
+    Boolean AllowSelection 'get set' : 
+    Boolean IsLogarithmicView 'get set' : 
+    Boolean IsVertical 'get set' : 
+    Int32[] Values 'get set' : 
+  Events:
+    AForge.Controls.HistogramEventHandler PositionChanged: 
+    AForge.Controls.HistogramEventHandler SelectionChanged: 
+  Methods:
+    get_Color(): PrivateScope, Public, HideBySig, SpecialName
+    set_Color(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_AllowSelection(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllowSelection(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_IsLogarithmicView(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsLogarithmicView(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_IsVertical(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsVertical(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_Values(): PrivateScope, Public, HideBySig, SpecialName
+    set_Values(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    add_PositionChanged(HistogramEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_PositionChanged(HistogramEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_SelectionChanged(HistogramEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_SelectionChanged(HistogramEventHandler): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Controls.Chart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Range RangeX 'get set' : 
+    AForge.Range RangeY 'get set' : 
+  Methods:
+    get_RangeX(): PrivateScope, Public, HideBySig, SpecialName
+    set_RangeX(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_RangeY(): PrivateScope, Public, HideBySig, SpecialName
+    set_RangeY(Range): PrivateScope, Public, HideBySig, SpecialName
+    AddDataSeries(String, Color, SeriesType, Int32): PrivateScope, Public, HideBySig
+    AddDataSeries(String, Color, SeriesType, Int32, Boolean): PrivateScope, Public, HideBySig
+    UpdateDataSeries(String, Double[,]): PrivateScope, Public, HideBySig
+    RemoveDataSeries(String): PrivateScope, Public, HideBySig
+    RemoveAllDataSeries(): PrivateScope, Public, HideBySig
+Struct AForge.Controls.Chart+SeriesType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SeriesType Line = 0 : Public, Static, Literal, HasDefault
+    SeriesType Dots = 1 : Public, Static, Literal, HasDefault
+    SeriesType ConnectedDots = 2 : Public, Static, Literal, HasDefault

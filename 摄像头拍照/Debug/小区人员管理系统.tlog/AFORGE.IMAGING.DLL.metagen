@@ -1,0 +1,2662 @@
+ImageRuntimeVersion: v2.0.50727
+Assembly AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb: 
+	hash=None, flags=None
+Assembly AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9: 
+	hash=None, flags=None
+Assembly System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Interface AForge.Imaging.ICornersDetector: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ProcessImage(Bitmap): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ProcessImage(BitmapData): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ProcessImage(UnmanagedImage): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface AForge.Imaging.Filters.IFilter: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Apply(Bitmap): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Apply(BitmapData): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Apply(UnmanagedImage): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface AForge.Imaging.Filters.IFilterInformation: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Class AForge.Imaging.Filters.BaseTransformationFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.Shrink: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color ColorToRemove 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ColorToRemove(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorToRemove(Color): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BaseRotateFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double Angle 'get set' : 
+    Boolean KeepSize 'get set' : 
+    System.Drawing.Color FillColor 'get set' : 
+  Methods:
+    get_Angle(): PrivateScope, Public, HideBySig, SpecialName
+    set_Angle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_KeepSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_KeepSize(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(Color): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.RotateNearestNeighbor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseRotateFilter
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Interface AForge.Imaging.Filters.IInPlaceFilter: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ApplyInPlace(Bitmap): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ApplyInPlace(BitmapData): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ApplyInPlace(UnmanagedImage): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface AForge.Imaging.Filters.IInPlacePartialFilter: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ApplyInPlace(Bitmap, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ApplyInPlace(BitmapData, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ApplyInPlace(UnmanagedImage, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.Filters.BaseUsingCopyPartialFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IInPlaceFilter
+    AForge.Imaging.Filters.IInPlacePartialFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.ConservativeSmoothing: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 KernelSize 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_KernelSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_KernelSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BaseInPlacePartialFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IInPlaceFilter
+    AForge.Imaging.Filters.IInPlacePartialFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.RotateChannels: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.GammaCorrection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Double Gamma 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Gamma(): PrivateScope, Public, HideBySig, SpecialName
+    set_Gamma(Double): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BrightnessCorrection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 AdjustValue 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_AdjustValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_AdjustValue(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ErrorDiffusionDithering: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+  Properties:
+    Byte ThresholdValue 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_ThresholdValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_ThresholdValue(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ErrorDiffusionToAdjacentNeighbors: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.ErrorDiffusionDithering
+    Void .ctor(Int32[][]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32[][] Coefficients 'get set' : 
+  Methods:
+    get_Coefficients(): PrivateScope, Public, HideBySig, SpecialName
+    set_Coefficients(Int32[][]): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.StuckiDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.ErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.BinaryErosion3x3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.FilterIterator: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(AForge.Imaging.Filters.IFilter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Filters.IFilter, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.Imaging.Filters.IFilter BaseFilter 'get set' : 
+    Int32 Iterations 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BaseFilter(): PrivateScope, Public, HideBySig, SpecialName
+    set_BaseFilter(IFilter): PrivateScope, Public, HideBySig, SpecialName
+    get_Iterations(): PrivateScope, Public, HideBySig, SpecialName
+    set_Iterations(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.Threshold: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 ThresholdValue 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ThresholdValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_ThresholdValue(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BaseInPlaceFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IInPlaceFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.BaseInPlaceFilter2: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+  Properties:
+    System.Drawing.Bitmap OverlayImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedOverlayImage 'get set' : 
+  Methods:
+    get_OverlayImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_OverlayImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedOverlayImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedOverlayImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Add: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.ColorReduction.ErrorDiffusionColorDithering: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Properties:
+    System.Drawing.Color[] ColorTable 'get set' : 
+    Boolean UseCaching 'get set' : 
+  Methods:
+    get_ColorTable(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorTable(Color[]): PrivateScope, Public, HideBySig, SpecialName
+    get_UseCaching(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseCaching(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    Apply(Bitmap): PrivateScope, Public, HideBySig
+    Apply(UnmanagedImage): PrivateScope, Public, HideBySig
+Class AForge.Imaging.ColorReduction.ColorErrorDiffusionToAdjacentNeighbors: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.ColorReduction.ErrorDiffusionColorDithering
+    Void .ctor(Int32[][]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32[][] Coefficients 'get set' : 
+  Methods:
+    get_Coefficients(): PrivateScope, Public, HideBySig, SpecialName
+    set_Coefficients(Int32[][]): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.ColorReduction.StuckiColorDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.ColorReduction.ColorErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Interface AForge.Imaging.ColorReduction.IColorQuantizer: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    AddColor(Color): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetPalette(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Clear(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.ColorReduction.FloydSteinbergColorDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.ColorReduction.ColorErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.TemplateMatch: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Rectangle, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Rectangle Rectangle 'get ' : 
+    Single Similarity 'get ' : 
+  Methods:
+    get_Rectangle(): PrivateScope, Public, HideBySig, SpecialName
+    get_Similarity(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.SusanCornersDetector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.ICornersDetector
+  Properties:
+    Int32 DifferenceThreshold 'get set' : 
+    Int32 GeometricalThreshold 'get set' : 
+  Methods:
+    get_DifferenceThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_DifferenceThreshold(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_GeometricalThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_GeometricalThreshold(Int32): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.RotateBilinear: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseRotateFilter
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BaseFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.WaterWave: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 HorizontalWavesCount 'get set' : 
+    Int32 VerticalWavesCount 'get set' : 
+    Int32 HorizontalWavesAmplitude 'get set' : 
+    Int32 VerticalWavesAmplitude 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_HorizontalWavesCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_HorizontalWavesCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_VerticalWavesCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_VerticalWavesCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_HorizontalWavesAmplitude(): PrivateScope, Public, HideBySig, SpecialName
+    set_HorizontalWavesAmplitude(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_VerticalWavesAmplitude(): PrivateScope, Public, HideBySig, SpecialName
+    set_VerticalWavesAmplitude(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.CornersMarker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(AForge.Imaging.ICornersDetector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.ICornersDetector, System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color MarkerColor 'get set' : 
+    AForge.Imaging.ICornersDetector Detector 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_MarkerColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_MarkerColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Detector(): PrivateScope, Public, HideBySig, SpecialName
+    set_Detector(ICornersDetector): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.PointedMeanFloodFill: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color Tolerance 'get set' : 
+    AForge.IntPoint StartingPoint 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_StartingPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartingPoint(IntPoint): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ColorFiltering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntRange, AForge.IntRange, AForge.IntRange): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.IntRange Red 'get set' : 
+    AForge.IntRange Green 'get set' : 
+    AForge.IntRange Blue 'get set' : 
+    AForge.Imaging.RGB FillColor 'get set' : 
+    Boolean FillOutsideRange 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Red(): PrivateScope, Public, HideBySig, SpecialName
+    set_Red(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_Green(): PrivateScope, Public, HideBySig, SpecialName
+    set_Green(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_Blue(): PrivateScope, Public, HideBySig, SpecialName
+    set_Blue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(RGB): PrivateScope, Public, HideBySig, SpecialName
+    get_FillOutsideRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillOutsideRange(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.ColorReduction.JarvisJudiceNinkeColorDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.ColorReduction.ColorErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.SimpleSkeletonization: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Byte Background 'get set' : 
+    Byte Foreground 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Background(): PrivateScope, Public, HideBySig, SpecialName
+    set_Background(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_Foreground(): PrivateScope, Public, HideBySig, SpecialName
+    set_Foreground(Byte): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ConnectedComponentsLabeling: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.Imaging.BlobCounterBase BlobCounter 'get set' : 
+    System.Drawing.Color[] ColorTable 'get set' : 
+    Boolean FilterBlobs 'get set' : 
+    Boolean CoupledSizeFiltering 'get set' : 
+    Int32 MinWidth 'get set' : 
+    Int32 MinHeight 'get set' : 
+    Int32 MaxWidth 'get set' : 
+    Int32 MaxHeight 'get set' : 
+    Int32 ObjectCount 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_BlobCounter(): PrivateScope, Public, HideBySig, SpecialName
+    set_BlobCounter(BlobCounterBase): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorTable(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_ColorTable(Color[]): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_FilterBlobs(): PrivateScope, Public, HideBySig, SpecialName
+    set_FilterBlobs(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_CoupledSizeFiltering(): PrivateScope, Public, HideBySig, SpecialName
+    set_CoupledSizeFiltering(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MinWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MinHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ObjectCount(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Morph: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Double SourcePercent 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourcePercent(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourcePercent(Double): PrivateScope, Public, HideBySig, SpecialName
+Interface AForge.Imaging.ComplexFilters.IComplexFilter: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Apply(ComplexImage): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.ComplexFilters.FrequencyFilter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntRange): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.ComplexFilters.IComplexFilter
+  Properties:
+    AForge.IntRange FrequencyRange 'get set' : 
+  Methods:
+    get_FrequencyRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_FrequencyRange(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    Apply(ComplexImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.BaseResizeFilter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+  Properties:
+    Int32 NewWidth 'get set' : 
+    Int32 NewHeight 'get set' : 
+  Methods:
+    get_NewWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_NewHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ResizeBicubic: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseResizeFilter
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.QuadrilateralTransformation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint], Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean AutomaticSizeCalculaton 'get set' : 
+    System.Collections.Generic.List`1[AForge.IntPoint] SourceQuadrilateral 'get set' : 
+    Int32 NewWidth 'get set' : 
+    Int32 NewHeight 'get set' : 
+    Boolean UseInterpolation 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_AutomaticSizeCalculaton(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutomaticSizeCalculaton(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceQuadrilateral(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceQuadrilateral(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_NewWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_NewHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_UseInterpolation(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseInterpolation(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.SaturationCorrection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Single AdjustValue 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_AdjustValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_AdjustValue(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Convolution: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(Int32[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32[,], Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32[,] Kernel 'get set' : 
+    Int32 Divisor 'get set' : 
+    Int32 Threshold 'get set' : 
+    Boolean DynamicDivisorForEdges 'get set' : 
+    Boolean ProcessAlpha 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Kernel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Kernel(Int32[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_Divisor(): PrivateScope, Public, HideBySig, SpecialName
+    set_Divisor(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Threshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_Threshold(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DynamicDivisorForEdges(): PrivateScope, Public, HideBySig, SpecialName
+    set_DynamicDivisorForEdges(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ProcessAlpha(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProcessAlpha(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.GrayscaleToRGB: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BradleyLocalThresholding: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 WindowSize 'get set' : 
+    Single PixelBrightnessDifferenceLimit 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_WindowSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_WindowSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelBrightnessDifferenceLimit(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelBrightnessDifferenceLimit(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.IntegralImage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32 Width 'get ' : 
+    Int32 Height 'get ' : 
+    UInt32[,] InternalData 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_InternalData(): PrivateScope, Public, HideBySig, SpecialName
+    FromBitmap(Bitmap): PrivateScope, Public, Static, HideBySig
+    FromBitmap(BitmapData): PrivateScope, Public, Static, HideBySig
+    FromBitmap(UnmanagedImage): PrivateScope, Public, Static, HideBySig
+    GetRectangleSum(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetHaarXWavelet(Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetHaarYWavelet(Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleSumUnsafe(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleSum(Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleSumUnsafe(Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleMean(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleMeanUnsafe(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleMean(Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    GetRectangleMeanUnsafe(Int32, Int32, Int32): PrivateScope, Public, HideBySig
+Class AForge.Imaging.ImageStatistics: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Math.Histogram Red 'get ' : 
+    AForge.Math.Histogram Green 'get ' : 
+    AForge.Math.Histogram Blue 'get ' : 
+    AForge.Math.Histogram Gray 'get ' : 
+    AForge.Math.Histogram RedWithoutBlack 'get ' : 
+    AForge.Math.Histogram GreenWithoutBlack 'get ' : 
+    AForge.Math.Histogram BlueWithoutBlack 'get ' : 
+    AForge.Math.Histogram GrayWithoutBlack 'get ' : 
+    Int32 PixelsCount 'get ' : 
+    Int32 PixelsCountWithoutBlack 'get ' : 
+    Boolean IsGrayscale 'get ' : 
+  Methods:
+    get_Red(): PrivateScope, Public, HideBySig, SpecialName
+    get_Green(): PrivateScope, Public, HideBySig, SpecialName
+    get_Blue(): PrivateScope, Public, HideBySig, SpecialName
+    get_Gray(): PrivateScope, Public, HideBySig, SpecialName
+    get_RedWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_GreenWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_BlueWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_GrayWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelsCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelsCountWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsGrayscale(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.HorizontalIntensityStatistics: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Imaging.BitmapData): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Math.Histogram Red 'get ' : 
+    AForge.Math.Histogram Green 'get ' : 
+    AForge.Math.Histogram Blue 'get ' : 
+    AForge.Math.Histogram Gray 'get ' : 
+    Boolean IsGrayscale 'get ' : 
+  Methods:
+    get_Red(): PrivateScope, Public, HideBySig, SpecialName
+    get_Green(): PrivateScope, Public, HideBySig, SpecialName
+    get_Blue(): PrivateScope, Public, HideBySig, SpecialName
+    get_Gray(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsGrayscale(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.QuadrilateralTransformationNearestNeighbor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint], Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean AutomaticSizeCalculaton 'get set' : 
+    System.Collections.Generic.List`1[AForge.IntPoint] SourceCorners 'get set' : 
+    Int32 NewWidth 'get set' : 
+    Int32 NewHeight 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_AutomaticSizeCalculaton(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutomaticSizeCalculaton(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceCorners(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceCorners(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_NewWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_NewHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Median: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 Size 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Size(): PrivateScope, Public, HideBySig, SpecialName
+    set_Size(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.TexturedFilter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(Single[,], AForge.Imaging.Filters.IFilter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single[,], AForge.Imaging.Filters.IFilter, AForge.Imaging.Filters.IFilter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Textures.ITextureGenerator, AForge.Imaging.Filters.IFilter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Textures.ITextureGenerator, AForge.Imaging.Filters.IFilter, AForge.Imaging.Filters.IFilter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Double FilterLevel 'get set' : 
+    Double PreserveLevel 'get set' : 
+    Single[,] Texture 'get set' : 
+    AForge.Imaging.Textures.ITextureGenerator TextureGenerator 'get set' : 
+    AForge.Imaging.Filters.IFilter Filter1 'get set' : 
+    AForge.Imaging.Filters.IFilter Filter2 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_FilterLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_FilterLevel(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_PreserveLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_PreserveLevel(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Texture(): PrivateScope, Public, HideBySig, SpecialName
+    set_Texture(Single[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_TextureGenerator(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextureGenerator(ITextureGenerator): PrivateScope, Public, HideBySig, SpecialName
+    get_Filter1(): PrivateScope, Public, HideBySig, SpecialName
+    set_Filter1(IFilter): PrivateScope, Public, HideBySig, SpecialName
+    get_Filter2(): PrivateScope, Public, HideBySig, SpecialName
+    set_Filter2(IFilter): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.TopHat: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.DifferenceEdgeDetector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Mean: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.Convolution
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.LevelsLinear: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.IntRange InRed 'get set' : 
+    AForge.IntRange InGreen 'get set' : 
+    AForge.IntRange InBlue 'get set' : 
+    AForge.IntRange InGray 'get set' : 
+    AForge.IntRange Input 'set' : 
+    AForge.IntRange OutRed 'get set' : 
+    AForge.IntRange OutGreen 'get set' : 
+    AForge.IntRange OutBlue 'get set' : 
+    AForge.IntRange OutGray 'get set' : 
+    AForge.IntRange Output 'set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_InRed(): PrivateScope, Public, HideBySig, SpecialName
+    set_InRed(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_InGreen(): PrivateScope, Public, HideBySig, SpecialName
+    set_InGreen(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_InBlue(): PrivateScope, Public, HideBySig, SpecialName
+    set_InBlue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_InGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_InGray(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    set_Input(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutRed(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutRed(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutGreen(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutGreen(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutBlue(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutBlue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutGray(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    set_Output(IntRange): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.SISThreshold: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 ThresholdValue 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ThresholdValue(): PrivateScope, Public, HideBySig, SpecialName
+    CalculateThreshold(Bitmap, Rectangle): PrivateScope, Public, HideBySig
+    CalculateThreshold(BitmapData, Rectangle): PrivateScope, Public, HideBySig
+    CalculateThreshold(UnmanagedImage, Rectangle): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Filters.Difference: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.UnmanagedImage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(IntPtr, Int32, Int32, Int32, System.Drawing.Imaging.PixelFormat): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Imaging.BitmapData): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    IntPtr ImageData 'get ' : 
+    Int32 Width 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Stride 'get ' : 
+    System.Drawing.Imaging.PixelFormat PixelFormat 'get ' : 
+  Methods:
+    get_ImageData(): PrivateScope, Public, HideBySig, SpecialName
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_Stride(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, HideBySig
+    Copy(UnmanagedImage): PrivateScope, Public, HideBySig
+    Create(Int32, Int32, PixelFormat): PrivateScope, Public, Static, HideBySig
+    ToManagedImage(): PrivateScope, Public, HideBySig
+    ToManagedImage(Boolean): PrivateScope, Public, HideBySig
+    FromManagedImage(Bitmap): PrivateScope, Public, Static, HideBySig
+    FromManagedImage(BitmapData): PrivateScope, Public, Static, HideBySig
+    Collect8bppPixelValues(List`1): PrivateScope, Public, HideBySig
+    CollectActivePixels(): PrivateScope, Public, HideBySig
+    CollectActivePixels(Rectangle): PrivateScope, Public, HideBySig
+    SetPixels(List`1, Color): PrivateScope, Public, HideBySig
+    SetPixel(IntPoint, Color): PrivateScope, Public, HideBySig
+    SetPixel(Int32, Int32, Color): PrivateScope, Public, HideBySig
+    SetPixel(Int32, Int32, Byte): PrivateScope, Public, HideBySig
+    GetPixel(IntPoint): PrivateScope, Public, HideBySig
+    GetPixel(Int32, Int32): PrivateScope, Public, HideBySig
+    Collect16bppPixelValues(List`1): PrivateScope, Public, HideBySig
+Interface AForge.Imaging.Textures.ITextureGenerator: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Generate(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Reset(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.Textures.CloudsTexture: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Textures.ITextureGenerator
+  Methods:
+    Generate(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.QuadrilateralFinder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ProcessImage(Bitmap): PrivateScope, Public, HideBySig
+    ProcessImage(BitmapData): PrivateScope, Public, HideBySig
+    ProcessImage(UnmanagedImage): PrivateScope, Public, HideBySig
+Interface AForge.Imaging.IBlobsFilter: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Check(Blob): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.HoughLine: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Double, Int16, Int16, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IComparable
+  Fields:
+    Double Theta : Public, InitOnly
+    Int16 Radius : Public, InitOnly
+    Int16 Intensity : Public, InitOnly
+    Double RelativeIntensity : Public, InitOnly
+  Methods:
+    CompareTo(Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.HoughLineTransformation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 StepsPerDegree 'get set' : 
+    Int16 MinLineIntensity 'get set' : 
+    Int32 LocalPeakRadius 'get set' : 
+    Int16 MaxIntensity 'get ' : 
+    Int32 LinesCount 'get ' : 
+  Methods:
+    get_StepsPerDegree(): PrivateScope, Public, HideBySig, SpecialName
+    set_StepsPerDegree(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MinLineIntensity(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinLineIntensity(Int16): PrivateScope, Public, HideBySig, SpecialName
+    get_LocalPeakRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_LocalPeakRadius(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxIntensity(): PrivateScope, Public, HideBySig, SpecialName
+    get_LinesCount(): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap): PrivateScope, Public, HideBySig
+    ProcessImage(Bitmap, Rectangle): PrivateScope, Public, HideBySig
+    ProcessImage(BitmapData): PrivateScope, Public, HideBySig
+    ProcessImage(BitmapData, Rectangle): PrivateScope, Public, HideBySig
+    ProcessImage(UnmanagedImage): PrivateScope, Public, HideBySig
+    ProcessImage(UnmanagedImage, Rectangle): PrivateScope, Public, HideBySig
+    ToBitmap(): PrivateScope, Public, HideBySig
+    GetMostIntensiveLines(Int32): PrivateScope, Public, HideBySig
+    GetLinesByRelativeIntensity(Double): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Filters.SimpleQuadrilateralTransformation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint], Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean AutomaticSizeCalculaton 'get set' : 
+    System.Collections.Generic.List`1[AForge.IntPoint] SourceQuadrilateral 'get set' : 
+    Int32 NewWidth 'get set' : 
+    Int32 NewHeight 'get set' : 
+    Boolean UseInterpolation 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_AutomaticSizeCalculaton(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutomaticSizeCalculaton(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceQuadrilateral(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceQuadrilateral(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_NewWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_NewHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_UseInterpolation(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseInterpolation(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Texturer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(Single[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single[,], Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Textures.ITextureGenerator): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Textures.ITextureGenerator, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Double FilterLevel 'get set' : 
+    Double PreserveLevel 'get set' : 
+    Single[,] Texture 'get set' : 
+    AForge.Imaging.Textures.ITextureGenerator TextureGenerator 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_FilterLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_FilterLevel(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_PreserveLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_PreserveLevel(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Texture(): PrivateScope, Public, HideBySig, SpecialName
+    set_Texture(Single[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_TextureGenerator(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextureGenerator(ITextureGenerator): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.HSLLinear: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Range InLuminance 'get set' : 
+    AForge.Range OutLuminance 'get set' : 
+    AForge.Range InSaturation 'get set' : 
+    AForge.Range OutSaturation 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_InLuminance(): PrivateScope, Public, HideBySig, SpecialName
+    set_InLuminance(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_OutLuminance(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutLuminance(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_InSaturation(): PrivateScope, Public, HideBySig, SpecialName
+    set_InSaturation(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_OutSaturation(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutSaturation(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Blur: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.Convolution
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.SimplePosterization: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(PosterizationFillingType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Byte PosterizationInterval 'get set' : 
+    PosterizationFillingType FillingType 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_PosterizationInterval(): PrivateScope, Public, HideBySig, SpecialName
+    set_PosterizationInterval(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_FillingType(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillingType(PosterizationFillingType): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Struct AForge.Imaging.Filters.SimplePosterization+PosterizationFillingType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    PosterizationFillingType Min = 0 : Public, Static, Literal, HasDefault
+    PosterizationFillingType Max = 1 : Public, Static, Literal, HasDefault
+    PosterizationFillingType Average = 2 : Public, Static, Literal, HasDefault
+Class AForge.Imaging.Filters.JarvisJudiceNinkeDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.ErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.ColorReduction.MedianCutQuantizer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.ColorReduction.IColorQuantizer
+  Methods:
+    AddColor(Color): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetPalette(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Clear(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Textures.LabyrinthTexture: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Textures.ITextureGenerator
+  Methods:
+    Generate(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Interface AForge.Imaging.ITemplateMatching: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ProcessImage(Bitmap, Bitmap, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ProcessImage(BitmapData, BitmapData, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ProcessImage(UnmanagedImage, UnmanagedImage, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.Filters.YCbCrReplaceChannel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(Int16, System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16, AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int16 Channel 'get set' : 
+    System.Drawing.Bitmap ChannelImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedChannelImage 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Channel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Channel(Int16): PrivateScope, Public, HideBySig, SpecialName
+    get_ChannelImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedChannelImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedChannelImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.AdaptiveSmoothing: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Double Factor 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Factor(): PrivateScope, Public, HideBySig, SpecialName
+    set_Factor(Double): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BlobsFiltering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32, Int32, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.IBlobsFilter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean CoupledSizeFiltering 'get set' : 
+    Int32 MinWidth 'get set' : 
+    Int32 MinHeight 'get set' : 
+    Int32 MaxWidth 'get set' : 
+    Int32 MaxHeight 'get set' : 
+    AForge.Imaging.IBlobsFilter BlobsFilter 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_CoupledSizeFiltering(): PrivateScope, Public, HideBySig, SpecialName
+    set_CoupledSizeFiltering(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MinWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MinHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_BlobsFilter(): PrivateScope, Public, HideBySig, SpecialName
+    set_BlobsFilter(IBlobsFilter): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.HitAndMiss: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,], Modes): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Modes Mode 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Mode(): PrivateScope, Public, HideBySig, SpecialName
+    set_Mode(Modes): PrivateScope, Public, HideBySig, SpecialName
+Struct AForge.Imaging.Filters.HitAndMiss+Modes: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Modes HitAndMiss = 0 : Public, Static, Literal, HasDefault
+    Modes Thinning = 1 : Public, Static, Literal, HasDefault
+    Modes Thickening = 2 : Public, Static, Literal, HasDefault
+Class AForge.Imaging.Filters.HomogenityEdgeDetector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.GaussianSharpen: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.Convolution
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double Sigma 'get set' : 
+    Int32 Size 'get set' : 
+  Methods:
+    get_Sigma(): PrivateScope, Public, HideBySig, SpecialName
+    set_Sigma(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Size(): PrivateScope, Public, HideBySig, SpecialName
+    set_Size(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Merge: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.DocumentSkewChecker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 StepsPerDegree 'get set' : 
+    Double MaxSkewToDetect 'get set' : 
+    Double MinBeta 'get set' :  (Obsolete)
+    Double MaxBeta 'get set' :  (Obsolete)
+    Int32 LocalPeakRadius 'get set' : 
+  Methods:
+    get_StepsPerDegree(): PrivateScope, Public, HideBySig, SpecialName
+    set_StepsPerDegree(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxSkewToDetect(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxSkewToDetect(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MinBeta(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinBeta(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxBeta(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxBeta(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_LocalPeakRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_LocalPeakRadius(Int32): PrivateScope, Public, HideBySig, SpecialName
+    GetSkewAngle(Bitmap): PrivateScope, Public, HideBySig
+    GetSkewAngle(Bitmap, Rectangle): PrivateScope, Public, HideBySig
+    GetSkewAngle(BitmapData): PrivateScope, Public, HideBySig
+    GetSkewAngle(BitmapData, Rectangle): PrivateScope, Public, HideBySig
+    GetSkewAngle(UnmanagedImage): PrivateScope, Public, HideBySig
+    GetSkewAngle(UnmanagedImage, Rectangle): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Textures.WoodTexture: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Textures.ITextureGenerator
+  Properties:
+    Double Rings 'get set' : 
+  Methods:
+    get_Rings(): PrivateScope, Public, HideBySig, SpecialName
+    set_Rings(Double): PrivateScope, Public, HideBySig, SpecialName
+    Generate(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.MemoryManager: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    Int32 MaximumCacheSize 'get set' : 
+    Int32 CurrentCacheSize 'get ' : 
+    Int32 BusyMemoryBlocks 'get ' : 
+    Int32 FreeMemoryBlocks 'get ' : 
+    Int32 CachedMemory 'get ' : 
+    Int32 MaxSizeToCache 'get set' : 
+    Int32 MinSizeToCache 'get set' : 
+  Methods:
+    get_MaximumCacheSize(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_MaximumCacheSize(Int32): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_CurrentCacheSize(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_BusyMemoryBlocks(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_FreeMemoryBlocks(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_CachedMemory(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_MaxSizeToCache(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_MaxSizeToCache(Int32): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_MinSizeToCache(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_MinSizeToCache(Int32): PrivateScope, Public, Static, HideBySig, SpecialName
+    Alloc(Int32): PrivateScope, Public, Static, HideBySig
+    Free(IntPtr): PrivateScope, Public, Static, HideBySig
+    FreeUnusedMemory(): PrivateScope, Public, Static, HideBySig
+Class AForge.Imaging.Filters.YCbCrExtractChannel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int16 Channel 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Channel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Channel(Int16): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ResizeNearestNeighbor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseResizeFilter
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Crop: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Rectangle Rectangle 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Rectangle(): PrivateScope, Public, HideBySig, SpecialName
+    set_Rectangle(Rectangle): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.PointedColorFloodFill: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color Tolerance 'get set' : 
+    System.Drawing.Color FillColor 'get set' : 
+    AForge.IntPoint StartingPoint 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_StartingPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartingPoint(IntPoint): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Erosion3x3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.FlatFieldCorrection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Bitmap BackgoundImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedBackgoundImage 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_BackgoundImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgoundImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedBackgoundImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedBackgoundImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.HSLFiltering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntRange, AForge.Range, AForge.Range): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.IntRange Hue 'get set' : 
+    AForge.Range Saturation 'get set' : 
+    AForge.Range Luminance 'get set' : 
+    AForge.Imaging.HSL FillColor 'get set' : 
+    Boolean FillOutsideRange 'get set' : 
+    Boolean UpdateHue 'get set' : 
+    Boolean UpdateSaturation 'get set' : 
+    Boolean UpdateLuminance 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Hue(): PrivateScope, Public, HideBySig, SpecialName
+    set_Hue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_Saturation(): PrivateScope, Public, HideBySig, SpecialName
+    set_Saturation(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_Luminance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Luminance(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(HSL): PrivateScope, Public, HideBySig, SpecialName
+    get_FillOutsideRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillOutsideRange(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateHue(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateHue(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateSaturation(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateSaturation(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateLuminance(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateLuminance(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.GaussianBlur: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.Convolution
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double Sigma 'get set' : 
+    Int32 Size 'get set' : 
+  Methods:
+    get_Sigma(): PrivateScope, Public, HideBySig, SpecialName
+    set_Sigma(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Size(): PrivateScope, Public, HideBySig, SpecialName
+    set_Size(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Edges: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.Convolution
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.BaseFilter2: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+  Properties:
+    System.Drawing.Bitmap OverlayImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedOverlayImage 'get set' : 
+  Methods:
+    get_OverlayImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_OverlayImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedOverlayImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedOverlayImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.OtsuThreshold: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 ThresholdValue 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ThresholdValue(): PrivateScope, Public, HideBySig, SpecialName
+    CalculateThreshold(Bitmap, Rectangle): PrivateScope, Public, HideBySig
+    CalculateThreshold(BitmapData, Rectangle): PrivateScope, Public, HideBySig
+    CalculateThreshold(UnmanagedImage, Rectangle): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Filters.IterativeThreshold: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.Threshold
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 MinimumError 'get set' : 
+  Methods:
+    get_MinimumError(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinimumError(Int32): PrivateScope, Public, HideBySig, SpecialName
+    CalculateThreshold(Bitmap, Rectangle): PrivateScope, Public, HideBySig
+    CalculateThreshold(BitmapData, Rectangle): PrivateScope, Public, HideBySig
+    CalculateThreshold(UnmanagedImage, Rectangle): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Filters.ThresholdedEuclideanDifference: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Threshold 'get set' : 
+    Int32 WhitePixelsCount 'get ' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_Threshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_Threshold(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_WhitePixelsCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Intersect: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.ColorReduction.SierraColorDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.ColorReduction.ColorErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Textures.TextureTools: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Methods:
+    ToBitmap(Single[,]): PrivateScope, Public, Static, HideBySig
+    FromBitmap(Bitmap): PrivateScope, Public, Static, HideBySig
+    FromBitmap(BitmapData): PrivateScope, Public, Static, HideBySig
+    FromBitmap(UnmanagedImage): PrivateScope, Public, Static, HideBySig
+Class AForge.Imaging.Textures.TextileTexture: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Textures.ITextureGenerator
+  Methods:
+    Generate(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.BlobCounterBase: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Imaging.BitmapData): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 ObjectsCount 'get ' : 
+    Int32[] ObjectLabels 'get ' : 
+    AForge.Imaging.ObjectsOrder ObjectsOrder 'get set' : 
+    Boolean FilterBlobs 'get set' : 
+    Boolean CoupledSizeFiltering 'get set' : 
+    Int32 MinWidth 'get set' : 
+    Int32 MinHeight 'get set' : 
+    Int32 MaxWidth 'get set' : 
+    Int32 MaxHeight 'get set' : 
+    AForge.Imaging.IBlobsFilter BlobsFilter 'get set' : 
+  Methods:
+    get_ObjectsCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_ObjectLabels(): PrivateScope, Public, HideBySig, SpecialName
+    get_ObjectsOrder(): PrivateScope, Public, HideBySig, SpecialName
+    set_ObjectsOrder(ObjectsOrder): PrivateScope, Public, HideBySig, SpecialName
+    get_FilterBlobs(): PrivateScope, Public, HideBySig, SpecialName
+    set_FilterBlobs(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_CoupledSizeFiltering(): PrivateScope, Public, HideBySig, SpecialName
+    set_CoupledSizeFiltering(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MinWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MinHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_BlobsFilter(): PrivateScope, Public, HideBySig, SpecialName
+    set_BlobsFilter(IBlobsFilter): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap): PrivateScope, Public, HideBySig
+    ProcessImage(BitmapData): PrivateScope, Public, HideBySig
+    ProcessImage(UnmanagedImage): PrivateScope, Public, HideBySig
+    GetObjectsRectangles(): PrivateScope, Public, HideBySig
+    GetObjectsInformation(): PrivateScope, Public, HideBySig
+    GetObjects(Bitmap, Boolean): PrivateScope, Public, HideBySig
+    GetObjects(UnmanagedImage, Boolean): PrivateScope, Public, HideBySig
+    ExtractBlobsImage(Bitmap, Blob, Boolean): PrivateScope, Public, HideBySig
+    ExtractBlobsImage(UnmanagedImage, Blob, Boolean): PrivateScope, Public, HideBySig
+    GetBlobsLeftAndRightEdges(Blob, List`1&(Out), List`1&(Out)): PrivateScope, Public, HideBySig
+    GetBlobsTopAndBottomEdges(Blob, List`1&(Out), List`1&(Out)): PrivateScope, Public, HideBySig
+    GetBlobsEdgePoints(Blob): PrivateScope, Public, HideBySig
+Class AForge.Imaging.RecursiveBlobCounter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.BlobCounterBase
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Imaging.BitmapData): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color BackgroundThreshold 'get set' : 
+  Methods:
+    get_BackgroundThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgroundThreshold(Color): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.ImageStatisticsHSL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Math.ContinuousHistogram Saturation 'get ' : 
+    AForge.Math.ContinuousHistogram Luminance 'get ' : 
+    AForge.Math.ContinuousHistogram SaturationWithoutBlack 'get ' : 
+    AForge.Math.ContinuousHistogram LuminanceWithoutBlack 'get ' : 
+    Int32 PixelsCount 'get ' : 
+    Int32 PixelsCountWithoutBlack 'get ' : 
+  Methods:
+    get_Saturation(): PrivateScope, Public, HideBySig, SpecialName
+    get_Luminance(): PrivateScope, Public, HideBySig, SpecialName
+    get_SaturationWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_LuminanceWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelsCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelsCountWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.FillHoles: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean CoupledSizeFiltering 'get set' : 
+    Int32 MaxHoleWidth 'get set' : 
+    Int32 MaxHoleHeight 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_CoupledSizeFiltering(): PrivateScope, Public, HideBySig, SpecialName
+    set_CoupledSizeFiltering(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxHoleWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxHoleWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxHoleHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxHoleHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.CanvasMove: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(AForge.IntPoint): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntPoint, System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntPoint, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntPoint, System.Drawing.Color, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color FillColorRGB 'get set' : 
+    Byte FillColorGray 'get set' : 
+    AForge.IntPoint MovePoint 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_FillColorRGB(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColorRGB(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColorGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColorGray(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_MovePoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_MovePoint(IntPoint): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ReplaceChannel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(Int16, System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16, AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int16 Channel 'get set' : 
+    System.Drawing.Bitmap ChannelImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedChannelImage 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Channel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Channel(Int16): PrivateScope, Public, HideBySig, SpecialName
+    get_ChannelImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedChannelImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedChannelImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Grayscale: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double RedCoefficient : Public, InitOnly
+    Double GreenCoefficient : Public, InitOnly
+    Double BlueCoefficient : Public, InitOnly
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Grayscale+CommonAlgorithms: AutoLayout, AnsiClass, Class, NestedPublic, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    AForge.Imaging.Filters.Grayscale BT709 : Public, Static, InitOnly
+    AForge.Imaging.Filters.Grayscale RMY : Public, Static, InitOnly
+    AForge.Imaging.Filters.Grayscale Y : Public, Static, InitOnly
+Class AForge.Imaging.Filters.GrayscaleRMY: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit (Obsolete)
+  :AForge.Imaging.Filters.Grayscale
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.ThresholdWithCarry: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Byte ThresholdValue 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ThresholdValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_ThresholdValue(Byte): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.ColorReduction.BurkesColorDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.ColorReduction.ColorErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.MoravecCornersDetector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.ICornersDetector
+  Properties:
+    Int32 WindowSize 'get set' : 
+    Int32 Threshold 'get set' : 
+  Methods:
+    get_WindowSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_WindowSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Threshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_Threshold(Int32): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.Mirror: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(Boolean, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean MirrorX 'get set' : 
+    Boolean MirrorY 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_MirrorX(): PrivateScope, Public, HideBySig, SpecialName
+    set_MirrorX(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MirrorY(): PrivateScope, Public, HideBySig, SpecialName
+    set_MirrorY(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.MaskedFilter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(AForge.Imaging.Filters.IFilter, System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Filters.IFilter, AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Filters.IFilter, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Imaging.Filters.IFilter BaseFilter 'get set' : 
+    System.Drawing.Bitmap MaskImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedMaskImage 'get set' : 
+    Byte[,] Mask 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_BaseFilter(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaskImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaskImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedMaskImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedMaskImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+    get_Mask(): PrivateScope, Public, HideBySig, SpecialName
+    set_Mask(Byte[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Jitter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 Radius 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Radius(): PrivateScope, Public, HideBySig, SpecialName
+    set_Radius(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.CanvasFill: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Rectangle, System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Rectangle, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Rectangle, System.Drawing.Color, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color FillColorRGB 'get set' : 
+    Byte FillColorGray 'get set' : 
+    System.Drawing.Rectangle Region 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_FillColorRGB(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColorRGB(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColorGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColorGray(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_Region(): PrivateScope, Public, HideBySig, SpecialName
+    set_Region(Rectangle): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.HistogramEqualization: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ExtractChannel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int16 Channel 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Channel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Channel(Int16): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.FloydSteinbergDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.ErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Image: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    IsGrayscale(Bitmap): PrivateScope, Public, Static, HideBySig
+    CreateGrayscaleImage(Int32, Int32): PrivateScope, Public, Static, HideBySig
+    SetGrayscalePalette(Bitmap): PrivateScope, Public, Static, HideBySig
+    Clone(Bitmap, PixelFormat): PrivateScope, Public, Static, HideBySig
+    Clone(Bitmap): PrivateScope, Public, Static, HideBySig
+    Clone(BitmapData): PrivateScope, Public, Static, HideBySig
+    FormatImage(Bitmap&): PrivateScope, Public, Static, HideBySig (Obsolete)
+    FromFile(String): PrivateScope, Public, Static, HideBySig
+    Convert16bppTo8bpp(Bitmap): PrivateScope, Public, Static, HideBySig
+    Convert8bppTo16bpp(Bitmap): PrivateScope, Public, Static, HideBySig
+Class AForge.Imaging.Filters.YCbCrLinear: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Range InY 'get set' : 
+    AForge.Range InCb 'get set' : 
+    AForge.Range InCr 'get set' : 
+    AForge.Range OutY 'get set' : 
+    AForge.Range OutCb 'get set' : 
+    AForge.Range OutCr 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_InY(): PrivateScope, Public, HideBySig, SpecialName
+    set_InY(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_InCb(): PrivateScope, Public, HideBySig, SpecialName
+    set_InCb(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_InCr(): PrivateScope, Public, HideBySig, SpecialName
+    set_InCr(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_OutY(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutY(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_OutCb(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutCb(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_OutCr(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutCr(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ResizeBilinear: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseResizeFilter
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.OilPainting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 BrushSize 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_BrushSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_BrushSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ExtractNormalizedRGBChannel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int16 Channel 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Channel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Channel(Int16): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BinaryDilatation3x3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.SobelEdgeDetector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean ScaleIntensity 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ScaleIntensity(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleIntensity(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Sharpen: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.Convolution
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.Sepia: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Invert: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.EuclideanColorFiltering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.RGB, Int16): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int16 Radius 'get set' : 
+    AForge.Imaging.RGB CenterColor 'get set' : 
+    AForge.Imaging.RGB FillColor 'get set' : 
+    Boolean FillOutside 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Radius(): PrivateScope, Public, HideBySig, SpecialName
+    set_Radius(Int16): PrivateScope, Public, HideBySig, SpecialName
+    get_CenterColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CenterColor(RGB): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(RGB): PrivateScope, Public, HideBySig, SpecialName
+    get_FillOutside(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillOutside(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.ExhaustiveTemplateMatching: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.ITemplateMatching
+  Properties:
+    Single SimilarityThreshold 'get set' : 
+  Methods:
+    get_SimilarityThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_SimilarityThreshold(Single): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap, Bitmap): PrivateScope, Public, HideBySig
+    ProcessImage(Bitmap, Bitmap, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(BitmapData, BitmapData): PrivateScope, Public, HideBySig
+    ProcessImage(BitmapData, BitmapData, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(UnmanagedImage, UnmanagedImage): PrivateScope, Public, HideBySig
+    ProcessImage(UnmanagedImage, UnmanagedImage, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Interface AForge.Imaging.IBlockMatching: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ProcessImage(Bitmap, List`1, Bitmap): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ProcessImage(BitmapData, List`1, BitmapData): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ProcessImage(UnmanagedImage, List`1, UnmanagedImage): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class AForge.Imaging.ExhaustiveBlockMatching: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.IBlockMatching
+  Properties:
+    Int32 SearchRadius 'get set' : 
+    Int32 BlockSize 'get set' : 
+    Single SimilarityThreshold 'get set' : 
+  Methods:
+    get_SearchRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchRadius(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_BlockSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_BlockSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SimilarityThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_SimilarityThreshold(Single): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap, List`1, Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(BitmapData, List`1, BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ProcessImage(UnmanagedImage, List`1, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.UnsupportedImageFormatException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.ArgumentException
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.InvalidImagePropertiesException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.ArgumentException
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.ComplexImage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.ICloneable
+  Properties:
+    Int32 Width 'get ' : 
+    Int32 Height 'get ' : 
+    Boolean FourierTransformed 'get ' : 
+    AForge.Math.Complex[,] Data 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_FourierTransformed(): PrivateScope, Public, HideBySig, SpecialName
+    get_Data(): PrivateScope, Public, HideBySig, SpecialName
+    Clone(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    FromBitmap(Bitmap): PrivateScope, Public, Static, HideBySig
+    FromBitmap(BitmapData): PrivateScope, Public, Static, HideBySig
+    ToBitmap(): PrivateScope, Public, HideBySig
+    ForwardFourierTransform(): PrivateScope, Public, HideBySig
+    BackwardFourierTransform(): PrivateScope, Public, HideBySig
+Class AForge.Imaging.RGB: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte, Byte, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte, Byte, Byte, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte Red : Public
+    Byte Green : Public
+    Byte Blue : Public
+    Byte Alpha : Public
+    Int16 R = 2 : Public, Static, Literal, HasDefault
+    Int16 G = 1 : Public, Static, Literal, HasDefault
+    Int16 B = 0 : Public, Static, Literal, HasDefault
+    Int16 A = 3 : Public, Static, Literal, HasDefault
+  Properties:
+    System.Drawing.Color Color 'get set' : 
+  Methods:
+    get_Color(): PrivateScope, Public, HideBySig, SpecialName
+    set_Color(Color): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.HSL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 Hue : Public
+    Single Saturation : Public
+    Single Luminance : Public
+  Methods:
+    FromRGB(RGB, HSL): PrivateScope, Public, Static, HideBySig
+    FromRGB(RGB): PrivateScope, Public, Static, HideBySig
+    ToRGB(HSL, RGB): PrivateScope, Public, Static, HideBySig
+    ToRGB(): PrivateScope, Public, HideBySig
+Class AForge.Imaging.YCbCr: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single, Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single Y : Public
+    Single Cb : Public
+    Single Cr : Public
+    Int16 YIndex = 0 : Public, Static, Literal, HasDefault
+    Int16 CbIndex = 1 : Public, Static, Literal, HasDefault
+    Int16 CrIndex = 2 : Public, Static, Literal, HasDefault
+  Methods:
+    FromRGB(RGB, YCbCr): PrivateScope, Public, Static, HideBySig
+    FromRGB(RGB): PrivateScope, Public, Static, HideBySig
+    ToRGB(YCbCr, RGB): PrivateScope, Public, Static, HideBySig
+    ToRGB(): PrivateScope, Public, HideBySig
+Class AForge.Imaging.ColorReduction.OrderedColorDithering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Byte[,] ThresholdMatrix 'get set' : 
+    System.Drawing.Color[] ColorTable 'get set' : 
+    Boolean UseCaching 'get set' : 
+  Methods:
+    get_ThresholdMatrix(): PrivateScope, Public, HideBySig, SpecialName
+    set_ThresholdMatrix(Byte[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorTable(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorTable(Color[]): PrivateScope, Public, HideBySig, SpecialName
+    get_UseCaching(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseCaching(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    Apply(Bitmap): PrivateScope, Public, HideBySig
+    Apply(UnmanagedImage): PrivateScope, Public, HideBySig
+Class AForge.Imaging.BlockMatch: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(AForge.IntPoint, AForge.IntPoint, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.IntPoint SourcePoint 'get ' : 
+    AForge.IntPoint MatchPoint 'get ' : 
+    Single Similarity 'get ' : 
+  Methods:
+    get_SourcePoint(): PrivateScope, Public, HideBySig, SpecialName
+    get_MatchPoint(): PrivateScope, Public, HideBySig, SpecialName
+    get_Similarity(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Blob: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Blob): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Imaging.UnmanagedImage Image 'get set' : 
+    Boolean OriginalSize 'get set' : 
+    System.Drawing.Rectangle Rectangle 'get ' : 
+    Int32 ID   'get set' : 
+    Int32 Area 'get set' : 
+    Double Fullness 'get set' : 
+    AForge.Point CenterOfGravity 'get set' : 
+    System.Drawing.Color ColorMean 'get set' : 
+    System.Drawing.Color ColorStdDev 'get set' : 
+  Methods:
+    get_Image(): PrivateScope, Public, HideBySig, SpecialName
+    get_OriginalSize(): PrivateScope, Public, HideBySig, SpecialName
+    get_Rectangle(): PrivateScope, Public, HideBySig, SpecialName
+    get_ID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Area(): PrivateScope, Public, HideBySig, SpecialName
+    get_Fullness(): PrivateScope, Public, HideBySig, SpecialName
+    get_CenterOfGravity(): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorMean(): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorStdDev(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.HoughCircle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, Int32, Int32, Int16, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IComparable
+  Fields:
+    Int32 X : Public, InitOnly
+    Int32 Y : Public, InitOnly
+    Int32 Radius : Public, InitOnly
+    Int16 Intensity : Public, InitOnly
+    Double RelativeIntensity : Public, InitOnly
+  Methods:
+    CompareTo(Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.HoughCircleTransformation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int16 MinCircleIntensity 'get set' : 
+    Int32 LocalPeakRadius 'get set' : 
+    Int16 MaxIntensity 'get ' : 
+    Int32 CirclesCount 'get ' : 
+  Methods:
+    get_MinCircleIntensity(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinCircleIntensity(Int16): PrivateScope, Public, HideBySig, SpecialName
+    get_LocalPeakRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_LocalPeakRadius(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxIntensity(): PrivateScope, Public, HideBySig, SpecialName
+    get_CirclesCount(): PrivateScope, Public, HideBySig, SpecialName
+    ProcessImage(Bitmap): PrivateScope, Public, HideBySig
+    ProcessImage(BitmapData): PrivateScope, Public, HideBySig
+    ProcessImage(UnmanagedImage): PrivateScope, Public, HideBySig
+    ToBitmap(): PrivateScope, Public, HideBySig
+    GetMostIntensiveCircles(Int32): PrivateScope, Public, HideBySig
+    GetCirclesByRelativeIntensity(Double): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Filters.QuadrilateralTransformationBilinear: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint], Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.Generic.List`1[AForge.IntPoint]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Boolean AutomaticSizeCalculaton 'get set' : 
+    System.Collections.Generic.List`1[AForge.IntPoint] SourceCorners 'get set' : 
+    Int32 NewWidth 'get set' : 
+    Int32 NewHeight 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_AutomaticSizeCalculaton(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutomaticSizeCalculaton(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceCorners(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceCorners(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_NewWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_NewHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BackwardQuadrilateralTransformation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, System.Collections.Generic.List`1[AForge.IntPoint]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, System.Collections.Generic.List`1[AForge.IntPoint]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Bitmap SourceImage 'get set' : 
+    AForge.Imaging.UnmanagedImage SourceUnmanagedImage 'get set' : 
+    System.Collections.Generic.List`1[AForge.IntPoint] DestinationQuadrilateral 'get set' : 
+    Boolean UseInterpolation 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourceImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceUnmanagedImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceUnmanagedImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+    get_DestinationQuadrilateral(): PrivateScope, Public, HideBySig, SpecialName
+    set_DestinationQuadrilateral(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_UseInterpolation(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseInterpolation(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ImageWarp: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(AForge.IntPoint[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.IntPoint[,] WarpMap 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_WarpMap(): PrivateScope, Public, HideBySig, SpecialName
+    set_WarpMap(IntPoint[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.HorizontalRunLengthSmoothing: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 MaxGapSize 'get set' : 
+    Boolean ProcessGapsWithImageBorders 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_MaxGapSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxGapSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ProcessGapsWithImageBorders(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProcessGapsWithImageBorders(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ExtractBiggestBlob: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    AForge.IntPoint BlobPosition 'get ' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Bitmap OriginalImage 'get set' : 
+  Methods:
+    get_BlobPosition(): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_OriginalImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_OriginalImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.Dilatation3x3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.GrayscaleBT709: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit (Obsolete)
+  :AForge.Imaging.Filters.Grayscale
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Struct AForge.Imaging.ObjectsOrder: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    AForge.Imaging.ObjectsOrder None = 0 : Public, Static, Literal, HasDefault
+    AForge.Imaging.ObjectsOrder Size = 1 : Public, Static, Literal, HasDefault
+    AForge.Imaging.ObjectsOrder Area = 2 : Public, Static, Literal, HasDefault
+    AForge.Imaging.ObjectsOrder YX = 3 : Public, Static, Literal, HasDefault
+    AForge.Imaging.ObjectsOrder XY = 4 : Public, Static, Literal, HasDefault
+Class AForge.Imaging.BlobCounter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.BlobCounterBase
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Imaging.BitmapData): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color BackgroundThreshold 'get set' : 
+  Methods:
+    get_BackgroundThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgroundThreshold(Color): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.ImageStatisticsYCbCr: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Math.ContinuousHistogram Y 'get ' : 
+    AForge.Math.ContinuousHistogram Cb 'get ' : 
+    AForge.Math.ContinuousHistogram Cr 'get ' : 
+    AForge.Math.ContinuousHistogram YWithoutBlack 'get ' : 
+    AForge.Math.ContinuousHistogram CbWithoutBlack 'get ' : 
+    AForge.Math.ContinuousHistogram CrWithoutBlack 'get ' : 
+    Int32 PixelsCount 'get ' : 
+    Int32 PixelsCountWithoutBlack 'get ' : 
+  Methods:
+    get_Y(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cb(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cr(): PrivateScope, Public, HideBySig, SpecialName
+    get_YWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_CbWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_CrWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelsCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelsCountWithoutBlack(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.YCbCrFiltering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Range, AForge.Range, AForge.Range): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.Range Y 'get set' : 
+    AForge.Range Cb 'get set' : 
+    AForge.Range Cr 'get set' : 
+    AForge.Imaging.YCbCr FillColor 'get set' : 
+    Boolean FillOutsideRange 'get set' : 
+    Boolean UpdateY 'get set' : 
+    Boolean UpdateCb 'get set' : 
+    Boolean UpdateCr 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Y(): PrivateScope, Public, HideBySig, SpecialName
+    set_Y(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_Cb(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cb(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_Cr(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cr(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(YCbCr): PrivateScope, Public, HideBySig, SpecialName
+    get_FillOutsideRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillOutsideRange(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateY(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateY(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateCb(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateCb(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateCr(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateCr(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BilateralSmoothing: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean LimitKernelSize 'get set' : 
+    Boolean EnableParallelProcessing 'get set' : 
+    Int32 KernelSize 'get set' : 
+    Double SpatialFactor 'get set' : 
+    Double SpatialPower 'get set' : 
+    Double ColorFactor 'get set' : 
+    Double ColorPower 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_LimitKernelSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_LimitKernelSize(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_EnableParallelProcessing(): PrivateScope, Public, HideBySig, SpecialName
+    set_EnableParallelProcessing(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_KernelSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_KernelSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialFactor(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialFactor(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialPower(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialPower(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorFactor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorFactor(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorPower(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorPower(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Opening: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IInPlaceFilter
+    AForge.Imaging.Filters.IInPlacePartialFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.Dilatation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.FiltersSequence: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Collections.CollectionBase
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Filters.IFilter[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+  Properties:
+    AForge.Imaging.Filters.IFilter Item [Int32] 'get ' : 
+  Methods:
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Add(IFilter): PrivateScope, Public, HideBySig
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.ContrastCorrection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Factor 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_Factor(): PrivateScope, Public, HideBySig, SpecialName
+    set_Factor(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Textures.MarbleTexture: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Textures.ITextureGenerator
+  Properties:
+    Double XPeriod 'get set' : 
+    Double YPeriod 'get set' : 
+  Methods:
+    get_XPeriod(): PrivateScope, Public, HideBySig, SpecialName
+    set_XPeriod(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_YPeriod(): PrivateScope, Public, HideBySig, SpecialName
+    set_YPeriod(Double): PrivateScope, Public, HideBySig, SpecialName
+    Generate(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.TransformToPolar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double CirlceDepth 'get set' : 
+    Double OffsetAngle 'get set' : 
+    Boolean MapBackwards 'get set' : 
+    Boolean MapFromTop 'get set' : 
+    System.Drawing.Color FillColor 'get set' : 
+    System.Drawing.Size NewSize 'get set' : 
+    Boolean UseOriginalImageSize 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_CirlceDepth(): PrivateScope, Public, HideBySig, SpecialName
+    set_CirlceDepth(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_OffsetAngle(): PrivateScope, Public, HideBySig, SpecialName
+    set_OffsetAngle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MapBackwards(): PrivateScope, Public, HideBySig, SpecialName
+    set_MapBackwards(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MapFromTop(): PrivateScope, Public, HideBySig, SpecialName
+    set_MapFromTop(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_NewSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewSize(Size): PrivateScope, Public, HideBySig, SpecialName
+    get_UseOriginalImageSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseOriginalImageSize(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.TransformFromPolar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseTransformationFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double CirlceDepth 'get set' : 
+    Double OffsetAngle 'get set' : 
+    Boolean MapBackwards 'get set' : 
+    Boolean MapFromTop 'get set' : 
+    System.Drawing.Size NewSize 'get set' : 
+    Boolean UseOriginalImageSize 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_CirlceDepth(): PrivateScope, Public, HideBySig, SpecialName
+    set_CirlceDepth(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_OffsetAngle(): PrivateScope, Public, HideBySig, SpecialName
+    set_OffsetAngle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MapBackwards(): PrivateScope, Public, HideBySig, SpecialName
+    set_MapBackwards(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_MapFromTop(): PrivateScope, Public, HideBySig, SpecialName
+    set_MapFromTop(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_NewSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewSize(Size): PrivateScope, Public, HideBySig, SpecialName
+    get_UseOriginalImageSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseOriginalImageSize(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.RotateBicubic: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseRotateFilter
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.VerticalRunLengthSmoothing: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 MaxGapSize 'get set' : 
+    Boolean ProcessGapsWithImageBorders 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_MaxGapSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxGapSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ProcessGapsWithImageBorders(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProcessGapsWithImageBorders(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.SaltAndPepperNoise: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Double NoiseAmount 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_NoiseAmount(): PrivateScope, Public, HideBySig, SpecialName
+    set_NoiseAmount(Double): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.AdditiveNoise: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Math.Random.IRandomNumberGenerator): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.Math.Random.IRandomNumberGenerator Generator 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Generator(): PrivateScope, Public, HideBySig, SpecialName
+    set_Generator(IRandomNumberGenerator): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Closing: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    AForge.Imaging.Filters.IFilter
+    AForge.Imaging.Filters.IInPlaceFilter
+    AForge.Imaging.Filters.IInPlacePartialFilter
+    AForge.Imaging.Filters.IFilterInformation
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Apply(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Apply(UnmanagedImage, UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(Bitmap, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(BitmapData, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ApplyInPlace(UnmanagedImage, Rectangle): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class AForge.Imaging.Filters.HueModifier: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 Hue  'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Hue(): PrivateScope, Public, HideBySig, SpecialName
+    set_Hue(Int32): PrivateScope, Public, HideBySig, SpecialName
+Struct AForge.Imaging.Filters.BayerPattern: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    AForge.Imaging.Filters.BayerPattern GRBG = 0 : Public, Static, Literal, HasDefault
+    AForge.Imaging.Filters.BayerPattern BGGR = 1 : Public, Static, Literal, HasDefault
+Class AForge.Imaging.Filters.BayerFilterOptimized: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Imaging.Filters.BayerPattern Pattern 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_Pattern(): PrivateScope, Public, HideBySig, SpecialName
+    set_Pattern(BayerPattern): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ColorRemapping: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte[], Byte[], Byte[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Byte[] RedMap 'get set' : 
+    Byte[] GreenMap 'get set' : 
+    Byte[] BlueMap 'get set' : 
+    Byte[] GrayMap 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_RedMap(): PrivateScope, Public, HideBySig, SpecialName
+    set_RedMap(Byte[]): PrivateScope, Public, HideBySig, SpecialName
+    get_GreenMap(): PrivateScope, Public, HideBySig, SpecialName
+    set_GreenMap(Byte[]): PrivateScope, Public, HideBySig, SpecialName
+    get_BlueMap(): PrivateScope, Public, HideBySig, SpecialName
+    set_BlueMap(Byte[]): PrivateScope, Public, HideBySig, SpecialName
+    get_GrayMap(): PrivateScope, Public, HideBySig, SpecialName
+    set_GrayMap(Byte[]): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.OrderedDithering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BayerDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.OrderedDithering
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.VerticalIntensityStatistics: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Imaging.BitmapData): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Math.Histogram Red 'get ' : 
+    AForge.Math.Histogram Green 'get ' : 
+    AForge.Math.Histogram Blue 'get ' : 
+    AForge.Math.Histogram Gray 'get ' : 
+    Boolean IsGrayscale 'get ' : 
+  Methods:
+    get_Red(): PrivateScope, Public, HideBySig, SpecialName
+    get_Green(): PrivateScope, Public, HideBySig, SpecialName
+    get_Blue(): PrivateScope, Public, HideBySig, SpecialName
+    get_Gray(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsGrayscale(): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.TexturedMerge: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(Single[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.Textures.ITextureGenerator): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Single[,] Texture 'get set' : 
+    AForge.Imaging.Textures.ITextureGenerator TextureGenerator 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Texture(): PrivateScope, Public, HideBySig, SpecialName
+    set_Texture(Single[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_TextureGenerator(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextureGenerator(ITextureGenerator): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.CanvasCrop: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Rectangle, System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Rectangle, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Rectangle, System.Drawing.Color, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    System.Drawing.Color FillColorRGB 'get set' : 
+    Byte FillColorGray 'get set' : 
+    System.Drawing.Rectangle Region 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_FillColorRGB(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColorRGB(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_FillColorGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillColorGray(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_Region(): PrivateScope, Public, HideBySig, SpecialName
+    set_Region(Rectangle): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Erosion: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BottomHat: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.GrayscaleY: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit (Obsolete)
+  :AForge.Imaging.Filters.Grayscale
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.ContrastStretch: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ChannelFiltering: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.IntRange, AForge.IntRange, AForge.IntRange): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.IntRange Red 'get set' : 
+    Byte FillRed 'get set' : 
+    AForge.IntRange Green 'get set' : 
+    Byte FillGreen 'get set' : 
+    AForge.IntRange Blue 'get set' : 
+    Byte FillBlue 'get set' : 
+    Boolean RedFillOutsideRange 'get set' : 
+    Boolean GreenFillOutsideRange 'get set' : 
+    Boolean BlueFillOutsideRange 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Red(): PrivateScope, Public, HideBySig, SpecialName
+    set_Red(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_FillRed(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillRed(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_Green(): PrivateScope, Public, HideBySig, SpecialName
+    set_Green(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_FillGreen(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillGreen(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_Blue(): PrivateScope, Public, HideBySig, SpecialName
+    set_Blue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_FillBlue(): PrivateScope, Public, HideBySig, SpecialName
+    set_FillBlue(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_RedFillOutsideRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_RedFillOutsideRange(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_GreenFillOutsideRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_GreenFillOutsideRange(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_BlueFillOutsideRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_BlueFillOutsideRange(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.BayerFilter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean PerformDemosaicing 'get set' : 
+    Int32[,] BayerPattern 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_PerformDemosaicing(): PrivateScope, Public, HideBySig, SpecialName
+    set_PerformDemosaicing(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_BayerPattern(): PrivateScope, Public, HideBySig, SpecialName
+    set_BayerPattern(Int32[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.MoveTowards: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 StepSize 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_StepSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_StepSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Drawing: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    FillRectangle(BitmapData, Rectangle, Color): PrivateScope, Public, Static, HideBySig
+    FillRectangle(UnmanagedImage, Rectangle, Color): PrivateScope, Public, Static, HideBySig
+    Rectangle(BitmapData, Rectangle, Color): PrivateScope, Public, Static, HideBySig
+    Rectangle(UnmanagedImage, Rectangle, Color): PrivateScope, Public, Static, HideBySig
+    Line(BitmapData, IntPoint, IntPoint, Color): PrivateScope, Public, Static, HideBySig
+    Line(UnmanagedImage, IntPoint, IntPoint, Color): PrivateScope, Public, Static, HideBySig
+    Polygon(BitmapData, List`1, Color): PrivateScope, Public, Static, HideBySig
+    Polygon(UnmanagedImage, List`1, Color): PrivateScope, Public, Static, HideBySig
+    Polyline(BitmapData, List`1, Color): PrivateScope, Public, Static, HideBySig
+    Polyline(UnmanagedImage, List`1, Color): PrivateScope, Public, Static, HideBySig
+Class AForge.Imaging.ColorReduction.ColorImageQuantizer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(AForge.Imaging.ColorReduction.IColorQuantizer): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    AForge.Imaging.ColorReduction.IColorQuantizer Quantizer 'get set' : 
+    Boolean UseCaching 'get set' : 
+  Methods:
+    get_Quantizer(): PrivateScope, Public, HideBySig, SpecialName
+    set_Quantizer(IColorQuantizer): PrivateScope, Public, HideBySig, SpecialName
+    get_UseCaching(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseCaching(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    CalculatePalette(Bitmap, Int32): PrivateScope, Public, HideBySig
+    CalculatePalette(UnmanagedImage, Int32): PrivateScope, Public, HideBySig
+    ReduceColors(Bitmap, Int32): PrivateScope, Public, HideBySig
+    ReduceColors(UnmanagedImage, Int32): PrivateScope, Public, HideBySig
+    ReduceColors(Bitmap, Color[]): PrivateScope, Public, HideBySig
+    ReduceColors(UnmanagedImage, Color[]): PrivateScope, Public, HideBySig
+Class AForge.Imaging.Filters.Pixellate: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Int32 PixelWidth 'get set' : 
+    Int32 PixelHeight 'get set' : 
+    Int32 PixelSize 'set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_PixelWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.ApplyMask: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte[,]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Bitmap MaskImage 'get set' : 
+    AForge.Imaging.UnmanagedImage UnmanagedMaskImage 'get set' : 
+    Byte[,] Mask 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_MaskImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaskImage(Bitmap): PrivateScope, Public, HideBySig, SpecialName
+    get_UnmanagedMaskImage(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnmanagedMaskImage(UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName
+    get_Mask(): PrivateScope, Public, HideBySig, SpecialName
+    set_Mask(Byte[,]): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.CannyEdgeDetector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseUsingCopyPartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte, Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte, Byte, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    Byte LowThreshold 'get set' : 
+    Byte HighThreshold 'get set' : 
+    Double GaussianSigma 'get set' : 
+    Int32 GaussianSize 'get set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_LowThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_LowThreshold(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_HighThreshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_HighThreshold(Byte): PrivateScope, Public, HideBySig, SpecialName
+    get_GaussianSigma(): PrivateScope, Public, HideBySig, SpecialName
+    set_GaussianSigma(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_GaussianSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_GaussianSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.LevelsLinear16bpp: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlacePartialFilter
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+    AForge.IntRange InRed 'get set' : 
+    AForge.IntRange InGreen 'get set' : 
+    AForge.IntRange InBlue 'get set' : 
+    AForge.IntRange InGray 'get set' : 
+    AForge.IntRange Input 'set' : 
+    AForge.IntRange OutRed 'get set' : 
+    AForge.IntRange OutGreen 'get set' : 
+    AForge.IntRange OutBlue 'get set' : 
+    AForge.IntRange OutGray 'get set' : 
+    AForge.IntRange Output 'set' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_InRed(): PrivateScope, Public, HideBySig, SpecialName
+    set_InRed(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_InGreen(): PrivateScope, Public, HideBySig, SpecialName
+    set_InGreen(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_InBlue(): PrivateScope, Public, HideBySig, SpecialName
+    set_InBlue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_InGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_InGray(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    set_Input(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutRed(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutRed(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutGreen(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutGreen(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutBlue(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutBlue(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    get_OutGray(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutGray(IntRange): PrivateScope, Public, HideBySig, SpecialName
+    set_Output(IntRange): PrivateScope, Public, HideBySig, SpecialName
+Class AForge.Imaging.Filters.SierraDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.ErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.BurkesDithering: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.ErrorDiffusionToAdjacentNeighbors
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class AForge.Imaging.Filters.ThresholdedDifference: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Threshold 'get set' : 
+    Int32 WhitePixelsCount 'get ' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_Threshold(): PrivateScope, Public, HideBySig, SpecialName
+    set_Threshold(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_WhitePixelsCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.Subtract: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Bitmap): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(AForge.Imaging.UnmanagedImage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class AForge.Imaging.Filters.StereoAnaglyph: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :AForge.Imaging.Filters.BaseInPlaceFilter2
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Algorithm): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Algorithm AnaglyphAlgorithm 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Drawing.Imaging.PixelFormat,System.Drawing.Imaging.PixelFormat] FormatTranslations 'get ' : 
+  Methods:
+    get_AnaglyphAlgorithm(): PrivateScope, Public, HideBySig, SpecialName
+    set_AnaglyphAlgorithm(Algorithm): PrivateScope, Public, HideBySig, SpecialName
+    get_FormatTranslations(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Struct AForge.Imaging.Filters.StereoAnaglyph+Algorithm: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Algorithm TrueAnaglyph = 0 : Public, Static, Literal, HasDefault
+    Algorithm GrayAnaglyph = 1 : Public, Static, Literal, HasDefault
+    Algorithm ColorAnaglyph = 2 : Public, Static, Literal, HasDefault
+    Algorithm HalfColorAnaglyph = 3 : Public, Static, Literal, HasDefault
+    Algorithm OptimizedAnaglyph = 4 : Public, Static, Literal, HasDefault
